@@ -1,40 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Introduction
 
-## Getting Started
+There are many third-party websites that provide information like ratings or scores of Leetcode problems, a feature that is not available on the official website. Over the past few years, the overall difficulty of Leetcode problems has been increasing, making the difficulty tags less effective in reflecting the actual challenge level of a problem. As a result, third-party websites play an important role in assisting with problem-solving.
 
-First, run the development server:
+These ratings are calculated from leetcode weekly/biweekly contests based on [Elo rating system](https://en.wikipedia.org/wiki/Elo_rating_system) as well as [Maximum likelihood estimation](https://en.wikipedia.org/wiki/Maximum_likelihood_estimation). Some of the data used in this project comes from the open-source dataset shared by [GitHub user zerotrac](https://github.com/zerotrac/leetcode_problem_rating/blob/main/ratings.txt).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Since retrieving the status of problems requires the user’s Leetcode token, otherwise, the status field in the Leetcode API response will be null, this project enables syncing problem statuses to help users train more efficiently.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+I have developed a Chrome extension, which is currently under review. The extension get the Leetcode token from Chrome cookies, retrieves the problem data, and then sends it to this website.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+See: [project link](https://lc-buddy.codingawsome.com/)
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+The features are limited, but the reason to do such a project is also test if the Chrome Extension way is available. If this Chrome extension is approved and published, other similar non-profit projects can also use it to fetch and synchronize user data without the need for persistent storage on a third-party backend.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
