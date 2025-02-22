@@ -3,6 +3,7 @@ import FilterBar from '../FilterBar'
 import Pagination from '../Pagination'
 import ProblemTable from '../ProblemTable'
 import { OriginalQuestion } from '../../../types/leetcodeChunk'
+import Policy from './Policy'
 
 type ProblemData = {
   rating: number
@@ -222,27 +223,22 @@ const HomePage: React.FC<HomeProps> = ({ initialProblems }) => {
         onChangePage={setCurrentPage}
       />
       {showSyncDialog && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
           {/* Dialog Container */}
-          <div className="bg-white p-6 rounded shadow-md max-w-md w-full">
-            <h2 className="text-xl font-semibold mb-4">
-              Chrome Extension needed
-            </h2>
-            <p className="mb-6">
-              You need to firstly download the Chrome Extension for「Sync
-              Status」feature.
-            </p>
+          <div className="bg-white p-6 rounded-md shadow-lg max-w-md w-full max-h-[80vh] overflow-y-auto transition-all transform scale-100">
+            <Policy />
 
-            <div className="flex justify-end space-x-2">
+            {/* Buttons */}
+            <div className="flex justify-end mt-6">
               <button
                 onClick={handleCancelSync}
-                className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300"
                 disabled={isLoading}>
                 Cancel
               </button>
               <button
                 onClick={handleConfirmSync}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+                className="ml-2 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
                 disabled={isLoading}>
                 Sync
               </button>
