@@ -94,6 +94,7 @@ const HomePage: React.FC<HomeProps> = ({ initialProblems }) => {
   const handleConfirmSync = async () => {
     setIsLoading(true)
     console.log(window.location.origin)
+    console.log(process.env.NEXT_PUBLIC_CHROME_EXTENSION_ID)
     if (
       typeof window === 'undefined' ||
       typeof window.chrome === 'undefined' ||
