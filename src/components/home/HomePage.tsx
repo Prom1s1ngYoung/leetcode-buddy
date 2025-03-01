@@ -93,6 +93,7 @@ const HomePage: React.FC<HomeProps> = ({ initialProblems }) => {
 
   const handleConfirmSync = async () => {
     setIsLoading(true)
+    console.log(window.location.origin)
     if (
       typeof window === 'undefined' ||
       typeof window.chrome === 'undefined' ||
